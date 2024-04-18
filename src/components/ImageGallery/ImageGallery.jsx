@@ -1,16 +1,12 @@
-const ImageGallery = ({ images }) => {
-  if (images.length === 0) {
-    // Повертаємо null, якщо немає завантажених зображень
-    return null;
-  }
 
+import ImageCard from './ImageCard'; // Імпортуємо компонент ImageCard
+
+const ImageGallery = ({ images }) => {
   return (
     <ul>
       {images.map((image, index) => (
         <li key={index}>
-          <div>
-            <img src={image.src} alt={image.alt} />
-          </div>
+          <ImageCard src={image.urls.small} alt={image.alt_description} />
         </li>
       ))}
     </ul>
