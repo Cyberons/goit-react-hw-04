@@ -1,5 +1,5 @@
 
-import ImageCard from './ImageCard'; // Імпортуємо компонент ImageCard
+import ImageCard from '../ImageCard/ImageCard.jsx'; 
 
 const ImageGallery = ({ images }) => {
   return (
