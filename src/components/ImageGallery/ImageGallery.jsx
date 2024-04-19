@@ -1,16 +1,14 @@
+import css from "./ImageGallery.css";
+import ImageCard from "../ImageCard/ImageCard";
 
-import ImageCard from '../ImageCard/ImageCard.jsx'; 
-
-const ImageGallery = ({ images }) => {
+export default function ImageGallery({ items }) {
   return (
-    <ul>
-      {images.map((image, index) => (
-        <li key={index}>
-          <ImageCard src={image.urls.small} alt={image.alt_description} />
+    <ul className={css.list}>
+      {items.map((item) => (
+        <li key={item.objectID}>
+          <ImageCard />
         </li>
       ))}
     </ul>
   );
-};
-
-export default ImageGallery;
+}

@@ -1,9 +1,14 @@
-const ErrorMessage = ({ message }) => {
+import css from "./ErrorMessage.css";
+import { BiSolidErrorAlt } from "react-icons/bi";
+
+export default function ErrorMessage() {
   return (
-    <div style={{ textAlign: 'center', marginTop: '20px', color: 'red' }}>
-      <p>{message}</p>
+    <div className={css.container}>
+      <p className={css.title}>
+        <BiSolidErrorAlt />
+        Whoops, something went wrong!
+      </p>
+      <p className={css.error}> Please, try to reload this page!</p>
     </div>
   );
-};
-
-export default ErrorMessage;
+}

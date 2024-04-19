@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const accessKey = "JlndqMeT14v0DbGn_8sX7HLiugjRkXzRSQkrDAvNevQ";
+const accessKey = "xZ0mk7BHM4G8ky6hP2mOX82YnBYmQgsUfw-LtNMNehg";
 
 axios.defaults.baseURL = `https://api.unsplash.com/photos/?client_id=${accessKey}`;
 

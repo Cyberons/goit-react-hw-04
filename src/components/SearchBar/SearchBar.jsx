@@ -1,39 +1,37 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useToasts } from 'react-hot-toast';
+import css from "./SearchBar.css";
+import { IoIosSearch } from "react-icons/io";
+import toast, { Toaster } from "react-hot-toast";
 
-const SearchBar = ({ onSubmit }) => {
-  const [searchText, setSearchText] = useState('');
-  const { error } = useToasts();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (searchText.trim() === '') {
-      error('Please enter text to search for images');
-    } else {
-      onSubmit(searchText);
+export default function SearchBar({ onSubmit }) {
+  const onSubmitBar = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const data = form.elements.topic.value;
+    if (data.trim() === "") {
+      toast.error("Please, enter your request!");
+      return;
     }
+    onSubmit(data.trim());
+    form.reset();
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
+    <header className={css.header}>
+      <form className={css.form} onSubmit={onSubmitBar}>
         <input
+          className={css.input}
           type="text"
+          name="topic"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
         />
-        <button type="submit">Search</button>
+
+        <button className={css.btn} type="submit">
+          <IoIosSearch className={css.icon} /> Search
+        </button>
+        <Toaster />
       </form>
     </header>
   );
-};
-
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
-
-export default SearchBar;
+}
