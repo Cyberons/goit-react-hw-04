@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from "./ImageCard.css";
 
 export default function ImageCard({
@@ -24,3 +25,13 @@ export default function ImageCard({
     </div>
   );
 }
+
+ImageCard.propTypes = {
+  alt_description: PropTypes.string.isRequired,
+  urls: PropTypes.shape({
+    small: PropTypes.string.isRequired
+  }).isRequired,
+  likes: PropTypes.number.isRequired,
+  views: PropTypes.number.isRequired,
+  downloads: PropTypes.number.isRequired
+};

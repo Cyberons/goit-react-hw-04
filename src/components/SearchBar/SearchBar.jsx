@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from "./SearchBar.css";
 import { IoIosSearch } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
@@ -35,3 +36,7 @@ export default function SearchBar({ onSubmit }) {
     </header>
   );
 }
+
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};

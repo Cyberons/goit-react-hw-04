@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchImages } from "./image-api.js";
 import SearchBar from "./SearchBar/SearchBar.jsx";
 import ImageGallery from "./ImageGallery/ImageGallery.jsx";
-import Loader from ".//Loader/Loader.jsx";
+import Loader from "./Loader/Loader.jsx";
 import ErrorMessage from "./ErrorMessage/ErrorMessage.jsx";
 import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn.jsx";
 

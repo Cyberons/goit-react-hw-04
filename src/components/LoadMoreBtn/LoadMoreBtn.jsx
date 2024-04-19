@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from "./LoadMoreBtn.css";
 import { MdOutlineCloudDownload } from "react-icons/md";
 
@@ -11,3 +12,7 @@ export default function LoadMoreBtn({ onClick }) {
     </div>
   );
 }
+
+LoadMoreBtn.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
