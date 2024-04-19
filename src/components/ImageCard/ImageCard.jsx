@@ -1,37 +1,49 @@
 import PropTypes from 'prop-types';
 import css from "./ImageCard.module.css";
+import { FcLike } from "react-icons/fc";
+import { GrInstagram } from "react-icons/gr";
+import { FaUserAlt } from "react-icons/fa";
 
 export default function ImageCard({
-  alt_description,
-  urls: { small },
-  likes,
-  views,
-  downloads,
+  item: {
+    alt_description,
+    urls: { small },
+    likes,
+    user: { name },
+  },
 }) {
   return (
     <div className={css.container}>
-      <img className={css.img} src={small} alt={alt_description} />
-      <ul className={css.list}>
-        <li className={css.item}>
-          Likes<p className={css.text}>{likes}</p>
-        </li>
-        <li className={css.item}>
-          Views<p className={css.text}>{views}</p>
-        </li>
-        <li className={css.item}>
-          Downloads<p className={css.text}>{downloads}</p>
-        </li>
-      </ul>
+      <div className={css.imgWrapper}>
+        <img
+          className={css.img}
+          src={small}
+          alt={alt_description}
+          width="210"
+          height="130"
+        />
+      </div>
+      <div className={css.textWrapper}>
+        <GrInstagram className={css.inst} size="20" color="rgb(133, 12, 97)" />
+        <ul className={css.list}>
+          <li className={css.item}>
+            <FaUserAlt color="rgb(51, 49, 49)" size="12" />
+            <p className={css.text}>{name}</p>
+          </li>
+          <li className={css.item}>
+            <FcLike size="12" />
+            <p className={css.text}>{likes}</p>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
 
 ImageCard.propTypes = {
-  alt_description: PropTypes.string.isRequired,
+  item: PropTypes.string.isRequired,
   urls: PropTypes.shape({
     small: PropTypes.string.isRequired
   }).isRequired,
-  likes: PropTypes.number.isRequired,
-  views: PropTypes.number.isRequired,
-  downloads: PropTypes.number.isRequired
+  
 };

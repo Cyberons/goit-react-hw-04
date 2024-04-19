@@ -4,19 +4,15 @@ import ImageCard from "../ImageCard/ImageCard.jsx";
 
 export default function ImageGallery({ items }) {
   return (
-    <ul className={css.list}>
-      {items && items.map((item) => (
-        <li key={item.objectID}>
-          <ImageCard
-            alt_description={item.alt_description}
-            urls={item.urls}
-            likes={item.likes}
-            views={item.views}
-            downloads={item.downloads}
-          />
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul className={css.list}>
+        {items.map((item) => (
+          <li className={css.item} key={item.id}>
+            <ImageCard item={item} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
