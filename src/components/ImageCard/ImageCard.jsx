@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import css from "./ImageCard.module.css";
 import { FcLike } from "react-icons/fc";
-import { GrInstagram } from "react-icons/gr";
 import { FaUserAlt } from "react-icons/fa";
 
 export default function ImageCard({
@@ -24,7 +23,6 @@ export default function ImageCard({
         />
       </div>
       <div className={css.textWrapper}>
-        <GrInstagram className={css.inst} size="20" color="rgb(133, 12, 97)" />
         <ul className={css.list}>
           <li className={css.item}>
             <FaUserAlt color="rgb(51, 49, 49)" size="12" />
