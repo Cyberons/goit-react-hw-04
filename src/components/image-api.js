@@ -13,5 +13,5 @@ export const fetchImages = async (currentPage, searchQuery) => {
       orientation: "landscape",
     },
   });
-  return response.data.hits;
+  return response.data;
 };
