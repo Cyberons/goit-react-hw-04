@@ -38,7 +38,7 @@ export default function App() {
 
   const handleSubmit = (query) => {
     setQuery(query);
-    setPage(1);
+    setPage(3);
     setImgs([]);
     toast.error("Nothing found! Try again!");
   };
