@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from "./LoadMoreBtn.css";
+import css from "./LoadMoreBtn.module.css";
 import { MdOutlineCloudDownload } from "react-icons/md";
 
 export default function LoadMoreBtn({ onClick }) {

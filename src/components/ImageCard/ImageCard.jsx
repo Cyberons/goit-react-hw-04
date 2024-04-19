@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from "./ImageCard.css";
+import css from "./ImageCard.module.css";
 
 export default function ImageCard({
   alt_description,

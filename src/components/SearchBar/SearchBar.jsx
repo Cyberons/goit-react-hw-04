@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from "./SearchBar.css";
+import css from "./SearchBar.module.css";
 import { IoIosSearch } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
 

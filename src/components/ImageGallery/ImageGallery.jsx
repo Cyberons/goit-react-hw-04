@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from "./ImageGallery.css";
+import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard.jsx";
 
 export default function ImageGallery({ items }) {

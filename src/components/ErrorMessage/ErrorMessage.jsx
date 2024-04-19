@@ -1,4 +1,4 @@
-import css from "./ErrorMessage.css";
+import css from "./ErrorMessage.module.css";
 import { BiSolidErrorAlt } from "react-icons/bi";
 
 export default function ErrorMessage() {
