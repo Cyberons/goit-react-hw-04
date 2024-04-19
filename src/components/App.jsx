@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { fetchImages } from "./image-api";
 import toast, { Toaster } from "react-hot-toast";
-import SearchBar from "./components/SearchBar/SearchBar";
-import ImageGallery from "./components/ImageGallery/ImageGallery";
-import Loader from "./components/Loader/Loader";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
+import SearchBar from "./SearchBar/SearchBar.jsx";
+import ImageGallery from "./ImageGallery/ImageGallery.jsx";
+import Loader from "./Loader/Loader.jsx";
+import ErrorMessage from "./ErrorMessage/ErrorMessage.jsx";
+import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn.jsx";
 
 export default function App() {
   const [imgs, setImgs] = useState([]);
