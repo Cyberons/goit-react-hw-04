@@ -6,6 +6,7 @@ import ImageGallery from "./ImageGallery/ImageGallery.jsx";
 import Loader from "./Loader/Loader.jsx";
 import ErrorMessage from "./ErrorMessage/ErrorMessage.jsx";
 import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn.jsx";
+import ImageModal from "./ImageModal/ImageModal.jsx";
 
 export default function App() {
   const [imgs, setImgs] = useState([]);
@@ -14,6 +15,10 @@ export default function App() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
 
   useEffect(() => {
     if (!query) {
@@ -38,23 +43,47 @@ export default function App() {
 
   const handleSubmit = (query) => {
     setQuery(query);
-    setPage(3);
-    setImgs([]);
-    toast.error("Nothing found! Try again!");
+    setPage(1);
+    setImgs([]); 
   };
   const handleLoadMore = () => {
-    setPage(page + 1);
+    setPage(page + 5);
+  };
+
+  const openModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   return (
     <div>
       <SearchBar onSubmit={handleSubmit} />
       <Toaster />
-      {imgs.length > 0 && <ImageGallery items={imgs} />}
-
-      {error && <ErrorMessage />}
-      {loading && <Loader />}
-      {imgs.length > 0 && !loading && <LoadMoreBtn onClick={handleLoadMore} />}
+      {imgs.length > 0 && (
+        <ImageGallery items={imgs} onClick={openModal} />
+      )}
+      {error ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          {imgs.length > 0 && (
+            <ImageGallery items={imgs} onClick={openModal} />
+          )}
+          {loading && <Loader />}
+          {imgs.length > 0 && !loading && (
+            <LoadMoreBtn onClick={handleLoadMore} />
+          )}
+        </>
+      )}
+      <ImageModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        imageUrl={selectedImage}
+      />
     </div>
   );
 }
