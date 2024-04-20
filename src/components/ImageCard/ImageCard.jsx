@@ -10,11 +10,13 @@ export default function ImageCard({
     likes,
     user: { name },
   },
+  onClick
 }) {
   return (
     <div className={css.container}>
       <div className={css.imgWrapper}>
         <img
+          onClick={() => onClick(small.regular, alt_description)}
           className={css.img}
           src={small}
           alt={alt_description}
