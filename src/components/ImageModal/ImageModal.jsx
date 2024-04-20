@@ -1,22 +1,27 @@
 import Modal from "react-modal";
+import css from "./ImageModal.module.css";
 
-const ImageModal = ({ isOpen, onClose, imageUrl }) => {
-  const closeModal = () => {
-    onClose();
+export default function ImageModal({ isOpen, modalImg, closeModal, alt }) {
+  Modal.setAppElement(document.body);
+  const customStyles = {
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.75)",
+    },
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
   };
-
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={closeModal}
-      contentLabel="Image Modal"
-      className="Modal"
-      overlayClassName="Overlay"
-    >
-      <img src={imageUrl} alt="Full size" />
-      <button onClick={closeModal}>Close</button>
-    </Modal>
+    <div>
+      <Modal isOpen={isOpen} onRequestClose={closeModal} style={customStyles}>
+        <img src={modalImg} alt={alt} width="1000" height="800" />
+        <p className={css.text}>{alt}</p>
+      </Modal>
+    </div>
   );
-};
-
-export default ImageModal;
+}

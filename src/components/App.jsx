@@ -16,9 +16,10 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
+  const [description, setDescription] = useState(null);
 
   useEffect(() => {
     if (!query) {
@@ -50,13 +51,16 @@ export default function App() {
     setPage(page + 5);
   };
 
-  const openModal = (imageUrl) => {
-    setSelectedImage(imageUrl);
-    setModalOpen(true);
+  const openModal = (bigImg, alt) => {
+    setSelectedImage(bigImg);
+    setDescription(alt);
+    setModalIsOpen(true);
   };
 
   const closeModal = () => {
-    setModalOpen(false);
+    setSelectedImage(null);
+    setDescription(null);
+    setModalIsOpen(false);
   };
 
   return (
@@ -64,14 +68,14 @@ export default function App() {
       <SearchBar onSubmit={handleSubmit} />
       <Toaster />
       {imgs.length > 0 && (
-        <ImageGallery items={imgs} onClick={openModal} />
+        <ImageGallery items={imgs}  />
       )}
       {error ? (
         <ErrorMessage />
       ) : (
         <>
           {imgs.length > 0 && (
-            <ImageGallery items={imgs} onClick={openModal} />
+            <ImageGallery items={imgs} openModal={openModal} />
           )}
           {loading && <Loader />}
           {imgs.length > 0 && !loading && (
@@ -80,9 +84,10 @@ export default function App() {
         </>
       )}
       <ImageModal
-        isOpen={modalOpen}
-        onClose={closeModal}
-        imageUrl={selectedImage}
+        isOpen={modalIsOpen}
+        modalImg={selectedImage}
+        alt={description}
+        closeModal={closeModal}
       />
     </div>
   );
