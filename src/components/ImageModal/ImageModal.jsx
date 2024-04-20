@@ -1,6 +1,5 @@
 import Modal from "react-modal";
 
-
 export default function ImageModal({ isOpen, modalImg, closeModal, alt }) {
   Modal.setAppElement(document.body);
   const customStyles = {

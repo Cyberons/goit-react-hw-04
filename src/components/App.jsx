@@ -48,7 +48,7 @@ export default function App() {
     setImgs([]); 
   };
   const handleLoadMore = () => {
-    setPage(page + 5);
+    setPage(page + 1);
   };
 
   const openModal = (bigImg, alt) => {
@@ -68,15 +68,12 @@ export default function App() {
       <SearchBar onSubmit={handleSubmit} />
       <Toaster />
       {imgs.length > 0 && (
-        <ImageGallery items={imgs}  />
+        <ImageGallery items={imgs}  openModal={openModal}/>
       )}
       {error ? (
         <ErrorMessage />
       ) : (
         <>
-          {imgs.length > 0 && (
-            <ImageGallery items={imgs} openModal={openModal} />
-          )}
           {loading && <Loader />}
           {imgs.length > 0 && !loading && (
             <LoadMoreBtn onClick={handleLoadMore} />
