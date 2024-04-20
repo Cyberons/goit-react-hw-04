@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import css from "./ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard.jsx";
 
-export default function ImageGallery({ items }) {
+export default function ImageGallery({ items, openModal }) {
   return (
     <div>
       <ul className={css.list}>
         {items.map((item) => (
           <li className={css.item} key={item.id}>
-            <ImageCard item={item} />
+            <ImageCard onClick={openModal} item={item} />
           </li>
         ))}
       </ul>
