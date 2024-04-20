@@ -6,7 +6,7 @@ import { FaUserAlt } from "react-icons/fa";
 export default function ImageCard({
   item: {
     alt_description,
-    urls: { small },
+    urls,
     likes,
     user: { name },
   },
@@ -16,9 +16,9 @@ export default function ImageCard({
     <div className={css.container}>
       <div className={css.imgWrapper}>
         <img
-          onClick={() => onClick(small.regular, alt_description)}
+          onClick={() => onClick(urls.regular, alt_description)}
           className={css.img}
-          src={small}
+          src={urls.small}
           alt={alt_description}
           width="210"
           height="130"
